@@ -47,6 +47,7 @@ function App() {
       <Clock
         sessionLength={session == "work" ? workTime : restTime}
         time={time}
+        filling={session == "work"}
       ></Clock>
       <Timer time={time} show={show}></Timer>
       <SettingController></SettingController>
