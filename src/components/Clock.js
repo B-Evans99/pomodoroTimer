@@ -1,5 +1,7 @@
 import React from "react";
 
-export default function Clock() {
-  return <h1>clock</h1>;
+export default function Clock({ sessionLength, time }) {
+  let completed = (sessionLength - time) / sessionLength;
+
+  return <h1>clock {completed}</h1>;
 }

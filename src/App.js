@@ -44,7 +44,10 @@ function App() {
 
   return (
     <div className="App">
-      <Clock></Clock>
+      <Clock
+        sessionLength={session == "work" ? workTime : restTime}
+        time={time}
+      ></Clock>
       <Timer time={time} show={show}></Timer>
       <SettingController></SettingController>
       <input type="button" onClick={start} value="Start"></input>
