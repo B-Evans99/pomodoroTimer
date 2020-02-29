@@ -7,6 +7,7 @@ import SettingController from "./components/SettingController.js";
 
 function App() {
   let [time, setTime] = useState(500);
+  let [timerInterval, setTimerInterval] = useState(-1);
 
   let tick = () => {
     console.log("tick");
@@ -16,7 +17,7 @@ function App() {
   };
 
   let start = () => {
-    setInterval(tick, 1000);
+    setTimerInterval(setInterval(tick, 1000));
   };
 
   return (
@@ -25,6 +26,13 @@ function App() {
       <Timer time={time}></Timer>
       <SettingController></SettingController>
       <input type="button" onClick={start} value="Start"></input>
+      <input
+        type="button"
+        onClick={() => {
+          clearInterval(timerInterval);
+        }}
+        value="Stop"
+      ></input>
     </div>
   );
 }
