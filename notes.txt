@@ -1,0 +1,4 @@
+I chose to make a Pomodoro app. I've used the Pomodoro method, or close variations, before, and I've always been annoyed that the online or phone timers I use don't have the option to hide the ticking timer. I find it really stressful to not be able to check for /about/ how much time I have left in a session without seeing the precise second count ticking down.
+
+Yesterday I made some initial sketches for the design. Along with the user stories in the initial challenge, I also want a show/hide button for the timer, and have set the stretch goal of storing whether there's a long break and the length of the work/rest sessions in the URL so users can bookmark their prefered settings. 
+
