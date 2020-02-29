@@ -1,7 +1,13 @@
 import React from "react";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 export default function Clock({ sessionLength, time }) {
-  let completed = (sessionLength - time) / sessionLength;
+  let percentage = ((sessionLength - time) / sessionLength) * 100;
 
-  return <h1>clock {completed}</h1>;
+  return (
+    <div className="clock">
+      <CircularProgressbar value={percentage} text={""} />
+    </div>
+  );
 }
