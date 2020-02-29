@@ -6,14 +6,34 @@ import Timer from "./components/Timer.js";
 import SettingController from "./components/SettingController.js";
 
 function App() {
-  let [time, setTime] = useState(3900);
+  let [workTime, setWorkTime] = useState(7);
+  let [restTime, setRestTime] = useState(2);
+  let [time, setTime] = useState(workTime);
   let [timerInterval, setTimerInterval] = useState(-1);
   let [show, setShow] = useState(true);
+  let [session, setSession] = useState("work");
+
+  let pauseTimer = () => {
+    setTimerInterval(interval => {
+      clearInterval(interval);
+      return -1;
+    });
+  };
 
   let tick = () => {
-    console.log("tick");
     setTime(time => {
-      return time - 1;
+      if (time == 0) {
+        pauseTimer();
+        if (session == "work") {
+          setSession("rest");
+          return restTime;
+        } else {
+          setSession("work");
+          return workTime;
+        }
+      } else {
+        return time - 1;
+      }
     });
   };
 
@@ -28,13 +48,7 @@ function App() {
       <Timer time={time} show={show}></Timer>
       <SettingController></SettingController>
       <input type="button" onClick={start} value="Start"></input>
-      <input
-        type="button"
-        onClick={() => {
-          clearInterval(timerInterval);
-        }}
-        value="Stop"
-      ></input>
+      <input type="button" onClick={pauseTimer} value="Stop"></input>
       <input
         type="button"
         value="Reset"
