@@ -2,3 +2,6 @@ I chose to make a Pomodoro app. I've used the Pomodoro method, or close variatio
 
 Yesterday I made some initial sketches for the design. Along with the user stories in the initial challenge, I also want a show/hide button for the timer, and have set the stretch goal of storing whether there's a long break and the length of the work/rest sessions in the URL so users can bookmark their prefered settings. 
 
+---
+
+There is a timer! My next step is to add in some control for the work/rest sessions.
