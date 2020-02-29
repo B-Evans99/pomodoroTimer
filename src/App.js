@@ -17,6 +17,7 @@ function App() {
   };
 
   let start = () => {
+    clearInterval(timerInterval);
     setTimerInterval(setInterval(tick, 1000));
   };
 
@@ -32,6 +33,13 @@ function App() {
           clearInterval(timerInterval);
         }}
         value="Stop"
+      ></input>
+      <input
+        type="button"
+        value="Reset"
+        onClick={() => {
+          setTime(500);
+        }}
       ></input>
     </div>
   );
