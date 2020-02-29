@@ -6,7 +6,7 @@ import Timer from "./components/Timer.js";
 import SettingController from "./components/SettingController.js";
 
 function App() {
-  let [time, setTime] = useState(500);
+  let [time, setTime] = useState(3900);
   let [timerInterval, setTimerInterval] = useState(-1);
   let [show, setShow] = useState(true);
 
