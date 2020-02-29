@@ -8,6 +8,7 @@ import SettingController from "./components/SettingController.js";
 function App() {
   let [time, setTime] = useState(500);
   let [timerInterval, setTimerInterval] = useState(-1);
+  let [show, setShow] = useState(true);
 
   let tick = () => {
     console.log("tick");
@@ -24,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <Clock></Clock>
-      <Timer time={time}></Timer>
+      <Timer time={time} show={show}></Timer>
       <SettingController></SettingController>
       <input type="button" onClick={start} value="Start"></input>
       <input
@@ -39,6 +40,15 @@ function App() {
         value="Reset"
         onClick={() => {
           setTime(500);
+        }}
+      ></input>
+      <input
+        type="button"
+        value="show/hide timer"
+        onClick={() => {
+          setShow(show => {
+            return !show;
+          });
         }}
       ></input>
     </div>
