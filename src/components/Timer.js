@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function Timer({ time, show, setShow, goal }) {
-  time = goal - time;
+  time = goal - time > 0 ? goal - time : 0;
 
   let hours = Math.floor(time / 3600);
   let minutes = Math.floor((time - hours * 3600) / 60);

@@ -29,6 +29,8 @@ function App() {
   };
 
   let changeSession = () => {
+    pauseTimer();
+    setTime(0);
     setSessionCount(count => {
       if (session == "work") {
         if ((count + 1) % 8 == 0) {
@@ -42,21 +44,11 @@ function App() {
 
       return count + 1;
     });
-    setTime(0);
   };
 
   let tick = () => {
     setTime(time => {
-      if (
-        (session == "work" && time >= workTime) ||
-        (session == "rest" && time >= restTime) ||
-        (session == "longrest" && time >= longRestTime)
-      ) {
-        pauseTimer();
-        return 0;
-      } else {
-        return time + 1;
-      }
+      return time + 1;
     });
   };
 
@@ -77,6 +69,7 @@ function App() {
             ? Sound.status.PLAYING
             : Sound.status.PAUSE
         }
+        onPlaying={pauseTimer}
         onFinishedPlaying={changeSession}
       ></Sound>
       <Clock

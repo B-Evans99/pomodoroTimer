@@ -13,7 +13,7 @@ export default function Clock({ sessionLength, time, filling }) {
         value={percentage}
         text={""}
         styles={
-          time == sessionLength
+          time == 0
             ? buildStyles({
                 strokeLinecap: "butt",
                 pathColor: filling ? trail : stroke,
