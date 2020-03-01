@@ -19,3 +19,7 @@ Other things I would like to do:
     - Make the control icons hierarchical with size (make the play button bigger)
     - Add in different alarm noises
     - Tailor the phone design (everything is functional on mobile devices, but it could use tweaking)
+
+---
+
+I'm really happy with how the timer is looking and functioning. I've set my own Pomodoro work session and am going to see if I can finish the bookmarking feature in this time!
