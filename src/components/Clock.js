@@ -3,8 +3,8 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 export default function Clock({ sessionLength, time, filling }) {
-  let percentage = ((sessionLength - time) / sessionLength) * 100;
-  let stroke = "#555";
+  let percentage = (time / sessionLength) * 100;
+  let stroke = "#1966a9";
   let trail = "#2d3";
 
   return (
@@ -23,7 +23,8 @@ export default function Clock({ sessionLength, time, filling }) {
             : buildStyles({
                 strokeLinecap: "butt",
                 pathColor: filling ? trail : stroke,
-                trailColor: filling ? stroke : trail
+                trailColor: filling ? stroke : trail,
+                pathTransition: "stroke-dashoffset 1s linear 0s"
               })
         }
       />

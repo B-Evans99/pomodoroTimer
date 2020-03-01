@@ -20,7 +20,8 @@ export default function SettingController({
   workTime,
   setLongRestTime,
   longRestTime,
-  timerInterval
+  timerInterval,
+  reset
 }) {
   return (
     <div className="sessionController">
@@ -33,9 +34,7 @@ export default function SettingController({
         <FontAwesomeIcon
           icon={faBackward}
           size="lg"
-          onClick={() => {
-            setTime(500);
-          }}
+          onClick={reset}
         ></FontAwesomeIcon>
         <FontAwesomeIcon
           icon={show ? faEye : faEyeSlash}
@@ -54,7 +53,7 @@ export default function SettingController({
             type="text"
             value={workTime / 60}
             onChange={e => {
-              let newVal = parseInt(e.target.value);
+              let newVal = parseInt("0" + e.target.value);
               setWorkTime(newVal * 60);
             }}
           ></input>
@@ -65,7 +64,7 @@ export default function SettingController({
             type="text"
             value={restTime / 60}
             onChange={e => {
-              let newVal = parseInt(e.target.value);
+              let newVal = parseInt("0" + e.target.value);
               setRestTime(newVal * 60);
             }}
           ></input>
@@ -76,7 +75,7 @@ export default function SettingController({
             type="text"
             value={longRestTime / 60}
             onChange={e => {
-              let newVal = parseInt(e.target.value);
+              let newVal = parseInt("0" + e.target.value);
               setLongRestTime(newVal * 60);
             }}
           ></input>

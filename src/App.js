@@ -11,7 +11,7 @@ function App() {
   let [workTime, setWorkTime] = useState(1500);
   let [restTime, setRestTime] = useState(300);
   let [longRestTime, setLongRestTime] = useState(600);
-  let [time, setTime] = useState(workTime);
+  let [time, setTime] = useState(0);
   let [timerInterval, setTimerInterval] = useState(-1);
   let [show, setShow] = useState(true);
   let [session, setSession] = useState("work");
@@ -22,6 +22,10 @@ function App() {
       clearInterval(interval);
       return -1;
     });
+  };
+
+  let reset = () => {
+    setTime(0);
   };
 
   let changeSession = () => {
@@ -46,11 +50,15 @@ function App() {
 
   let tick = () => {
     setTime(time => {
-      if (time == 0) {
+      if (
+        (session == "work" && time >= workTime) ||
+        (session == "rest" && time >= restTime) ||
+        (session == "longrest" && time >= longRestTime)
+      ) {
         pauseTimer();
         return 0;
       } else {
-        return time - 1;
+        return time + 1;
       }
     });
   };
@@ -65,7 +73,13 @@ function App() {
       <h2>{session} session</h2>
       <Sound
         url={beep}
-        playStatus={time == 0 ? Sound.status.PLAYING : Sound.status.PAUSE}
+        playStatus={
+          (session == "work" && time >= workTime) ||
+          (session == "rest" && time >= restTime) ||
+          (session == "longrest" && time >= longRestTime)
+            ? Sound.status.PLAYING
+            : Sound.status.PAUSE
+        }
         onFinishedPlaying={changeSession}
       ></Sound>
       <Clock
@@ -73,7 +87,18 @@ function App() {
         time={time}
         filling={session == "work"}
       ></Clock>
-      <Timer time={time} show={show}></Timer>
+      <Timer
+        time={time}
+        show={show}
+        setShow={setShow}
+        goal={
+          session == "work"
+            ? workTime
+            : session == "rest"
+            ? restTime
+            : longRestTime
+        }
+      ></Timer>
       <SettingController
         start={start}
         pauseTimer={pauseTimer}
@@ -87,6 +112,7 @@ function App() {
         longRestTime={longRestTime}
         show={show}
         timerInterval={timerInterval}
+        reset={reset}
       ></SettingController>
     </div>
   );

@@ -1,19 +1,32 @@
 import React from "react";
 
-export default function Timer({ time, show }) {
+export default function Timer({ time, show, setShow, goal }) {
+  time = goal - time;
+
   let hours = Math.floor(time / 3600);
   let minutes = Math.floor((time - hours * 3600) / 60);
   let seconds = (time - hours * 3600 - minutes * 60) % 60;
 
   return (
-    <h1>
-      {show
-        ? hours.toString().padStart(2, "0") +
-          ":" +
-          minutes.toString().padStart(2, "0") +
-          ":" +
-          seconds.toString().padStart(2, "0")
-        : "Timer hidden"}
-    </h1>
+    <div className="timerBox">
+      {show ? (
+        <h1>
+          {hours.toString().padStart(2, "0") +
+            ":" +
+            minutes.toString().padStart(2, "0") +
+            ":" +
+            seconds.toString().padStart(2, "0")}
+        </h1>
+      ) : (
+        <h1
+          className="hiddenTimer"
+          onClick={() => {
+            setShow(true);
+          }}
+        >
+          show timer
+        </h1>
+      )}
+    </div>
   );
 }
