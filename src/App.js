@@ -63,7 +63,17 @@ function App() {
 
   return (
     <div className="App">
-      <h2>{session} session</h2>
+      <h2
+        className={
+          session == "work"
+            ? "workTitle"
+            : session == "rest"
+            ? "restTitle"
+            : "longRestTitle"
+        }
+      >
+        {session} session
+      </h2>
       <Sound
         url={beep}
         playStatus={

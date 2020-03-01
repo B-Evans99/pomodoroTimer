@@ -3,8 +3,13 @@
   font-size: 1.2rem;
 }
 
-h2 {
+h2.restTitle,
+h2.longRestTitle {
   color: rgb(114, 161, 70);
+}
+
+h2.workTitle {
+  color: rgb(70, 87, 161);
 }
 
 .clock {
