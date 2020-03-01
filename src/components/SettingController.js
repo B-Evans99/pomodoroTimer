@@ -26,16 +26,9 @@ export default function SettingController({
     <div className="sessionController">
       <div className="iconBar">
         <FontAwesomeIcon
-          icon={faPlay}
+          icon={timerInterval == -1 ? faPlay : faPause}
           size="lg"
-          onClick={start}
-          style={timerInterval == -1 ? { color: "#0f0" } : {}}
-        ></FontAwesomeIcon>
-        <FontAwesomeIcon
-          icon={faPause}
-          size="lg"
-          onClick={pauseTimer}
-          style={timerInterval != -1 ? { color: "#0f0" } : {}}
+          onClick={timerInterval == -1 ? start : pauseTimer}
         ></FontAwesomeIcon>
         <FontAwesomeIcon
           icon={faBackward}
