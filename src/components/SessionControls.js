@@ -21,39 +21,48 @@ export default function SessionControls({
   return (
     <div className="sessionControlBox">
       <div className="sessionBox">
-        <h3>Work Session</h3>
-        <input
-          type="text"
-          value={workTime / 60}
-          onChange={e => {
-            let newVal = parseInt("0" + e.target.value);
-            setWorkTime(newVal * 60);
-          }}
-        ></input>
+        <h3>Work Session</h3>{" "}
+        <div className="inputBox">
+          <input
+            type="text"
+            value={workTime / 60}
+            onChange={e => {
+              let newVal = parseInt("0" + e.target.value);
+              setWorkTime(newVal * 60);
+            }}
+          ></input>
+          <span>min</span>
+        </div>
       </div>
       <div className="sessionBox">
         <h3>Rest Session</h3>
-        <input
-          type="text"
-          value={restTime / 60}
-          onChange={e => {
-            let newVal = parseInt("0" + e.target.value);
-            setRestTime(newVal * 60);
-          }}
-        ></input>
+        <div className="inputBox">
+          <input
+            type="text"
+            value={restTime / 60}
+            onChange={e => {
+              let newVal = parseInt("0" + e.target.value);
+              setRestTime(newVal * 60);
+            }}
+          ></input>
+          <span>min</span>
+        </div>
       </div>
 
       {longRestEnabled ? (
         <div className="sessionBox">
-          <h3>Long Rest Session</h3>
-          <input
-            type="text"
-            value={longRestTime / 60}
-            onChange={e => {
-              let newVal = parseInt("0" + e.target.value);
-              setLongRestTime(newVal * 60);
-            }}
-          ></input>
+          <h3>Long Rest Session</h3>{" "}
+          <div className="inputBox">
+            <input
+              type="text"
+              value={longRestTime / 60}
+              onChange={e => {
+                let newVal = parseInt("0" + e.target.value);
+                setLongRestTime(newVal * 60);
+              }}
+            ></input>
+            <span>min</span>
+          </div>
         </div>
       ) : (
         <div className="sessionBox">

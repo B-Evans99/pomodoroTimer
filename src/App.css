@@ -46,12 +46,28 @@
   margin: 25px 0px 8px 0px;
 }
 
-.sessionBox input {
+.inputBox {
+  display: flex;
+  justify-content: center;
+}
+
+.inputBox span {
+  display: block;
+  background-color: rgb(36, 39, 41);
+  padding: 0px 10px 0px 7px;
+  border-radius: 0px 10px 10px 0px;
+  font-size: 1.2rem;
+  line-height: calc(1.2rem + 17px);
+  color: rgb(143, 143, 143);
+}
+
+.inputBox input {
   font-size: 1.2rem;
   padding: 7px 11px;
-  border-radius: 10px;
+  border-radius: 10px 0px 0px 10px;
   border: none;
-  background-color: rgb(51, 43, 54);
-  box-shadow: 1px 1px 2px rgb(1, 10, 20);
-  color: rgb(219, 219, 219);
+  background-color: rgb(52, 56, 58);
+  color: rgb(255, 134, 134);
+  width: 50px;
+  text-align: right;
 }
