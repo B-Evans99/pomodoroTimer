@@ -24,7 +24,7 @@ export default function Timer({ time, show, setShow, goal }) {
             setShow(true);
           }}
         >
-          show timer
+          ---
         </h1>
       )}
     </div>
