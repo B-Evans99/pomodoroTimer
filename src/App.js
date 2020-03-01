@@ -1,12 +1,14 @@
 import React, { useState } from "react";
+import Sound from "react-sound";
 import logo from "./logo.svg";
 import "./App.css";
 import Clock from "./components/Clock.js";
 import Timer from "./components/Timer.js";
 import SettingController from "./components/SettingController.js";
+import beep from "./beep.mp3";
 
 function App() {
-  let [workTime, setWorkTime] = useState(7);
+  let [workTime, setWorkTime] = useState(2);
   let [restTime, setRestTime] = useState(2);
   let [time, setTime] = useState(workTime);
   let [timerInterval, setTimerInterval] = useState(-1);
@@ -20,17 +22,23 @@ function App() {
     });
   };
 
+  let changeSession = () => {
+    setTime(() => {
+      if (session == "work") {
+        setSession("rest");
+        return restTime;
+      } else {
+        setSession("work");
+        return workTime;
+      }
+    });
+  };
+
   let tick = () => {
     setTime(time => {
       if (time == 0) {
         pauseTimer();
-        if (session == "work") {
-          setSession("rest");
-          return restTime;
-        } else {
-          setSession("work");
-          return workTime;
-        }
+        return 0;
       } else {
         return time - 1;
       }
@@ -44,6 +52,11 @@ function App() {
 
   return (
     <div className="App">
+      <Sound
+        url={beep}
+        playStatus={time == 0 ? Sound.status.PLAYING : Sound.status.PAUSE}
+        onFinishedPlaying={changeSession}
+      ></Sound>
       <Clock
         sessionLength={session == "work" ? workTime : restTime}
         time={time}
