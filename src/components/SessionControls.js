@@ -42,6 +42,7 @@ export default function SessionControls({
             value={workTime / 60}
             onChange={e => {
               let newVal = parseInt("0" + e.target.value);
+              if (newVal == 0) newVal = 1;
               setWorkTime(newVal * 60);
             }}
           ></input>
@@ -56,6 +57,7 @@ export default function SessionControls({
             value={restTime / 60}
             onChange={e => {
               let newVal = parseInt("0" + e.target.value);
+              if (newVal == 0) newVal = 1;
               setRestTime(newVal * 60);
             }}
           ></input>
@@ -72,6 +74,7 @@ export default function SessionControls({
               value={longRestTime / 60}
               onChange={e => {
                 let newVal = parseInt("0" + e.target.value);
+                if (newVal == 0) newVal = 1;
                 setLongRestTime(newVal * 60);
               }}
             ></input>

@@ -27,3 +27,7 @@ I'm really happy with how the timer is looking and functioning. I've set my own 
 ---
 
 I cannot! There are query params in the URL that update based upon the session length values, but I wasn't able to read them to initialize the app.
+
+---
+
+I tested the app with a couple users. One user got confused when he set the timer to 0 minutes and completely skipped his work session. I've set it now so the mininum value the sessions can go down to is 1 minute. This means that when users set a 1 minute time, it's difficult to reset it to say, 5 minutes. Everyone was annoyed by that, but not confused, which was preferable to when the user didn't understand what he'd done to trigger a rest session.
