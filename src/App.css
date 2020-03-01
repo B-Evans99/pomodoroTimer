@@ -3,6 +3,10 @@
   font-size: 1.2rem;
 }
 
+h2 {
+  color: rgb(114, 161, 70);
+}
+
 .clock {
   max-width: 400px;
   margin: auto;
