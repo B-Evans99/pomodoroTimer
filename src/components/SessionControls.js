@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   faPlay,
   faPause,
@@ -7,6 +7,7 @@ import {
   faEyeSlash
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useHistory } from "react-router-dom";
 
 export default function SessionControls({
   setRestTime,
@@ -18,6 +19,19 @@ export default function SessionControls({
   longRestEnabled,
   setLongRestEnabled
 }) {
+  const history = useHistory();
+
+  useEffect(() => {
+    history.push(
+      "/session?work=" +
+        workTime +
+        "&rest=" +
+        restTime +
+        "&longrest=" +
+        longRestTime
+    );
+  }, [workTime, restTime, longRestTime]);
+
   return (
     <div className="sessionControlBox">
       <div className="sessionBox">
