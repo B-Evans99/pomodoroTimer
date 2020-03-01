@@ -19,14 +19,14 @@ export default function TimerControls({
   return (
     <div className="iconBar">
       <FontAwesomeIcon
-        icon={timerInterval == -1 ? faPlay : faPause}
-        size="lg"
-        onClick={timerInterval == -1 ? start : pauseTimer}
-      ></FontAwesomeIcon>
-      <FontAwesomeIcon
         icon={faBackward}
         size="lg"
         onClick={reset}
+      ></FontAwesomeIcon>
+      <FontAwesomeIcon
+        icon={timerInterval == -1 ? faPlay : faPause}
+        size="2x"
+        onClick={timerInterval == -1 ? start : pauseTimer}
       ></FontAwesomeIcon>
       <FontAwesomeIcon
         icon={show ? faEye : faEyeSlash}
