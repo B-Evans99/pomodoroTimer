@@ -80,7 +80,12 @@ export default function SessionControls({
         </div>
       ) : (
         <div className="sessionBox">
-          <h3 onClick={() => setLongRestEnabled(true)}>Enable long rest</h3>
+          <h3
+            style={{ cursor: "pointer" }}
+            onClick={() => setLongRestEnabled(true)}
+          >
+            Enable long rest
+          </h3>
         </div>
       )}
     </div>
