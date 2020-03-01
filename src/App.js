@@ -52,6 +52,7 @@ function App() {
 
   return (
     <div className="App">
+      <h2>{session} session</h2>
       <Sound
         url={beep}
         playStatus={time == 0 ? Sound.status.PLAYING : Sound.status.PAUSE}
@@ -63,25 +64,12 @@ function App() {
         filling={session == "work"}
       ></Clock>
       <Timer time={time} show={show}></Timer>
-      <SettingController></SettingController>
-      <input type="button" onClick={start} value="Start"></input>
-      <input type="button" onClick={pauseTimer} value="Stop"></input>
-      <input
-        type="button"
-        value="Reset"
-        onClick={() => {
-          setTime(500);
-        }}
-      ></input>
-      <input
-        type="button"
-        value="show/hide timer"
-        onClick={() => {
-          setShow(show => {
-            return !show;
-          });
-        }}
-      ></input>
+      <SettingController
+        start={start}
+        pauseTimer={pauseTimer}
+        setTime={setTime}
+        setShow={setShow}
+      ></SettingController>
     </div>
   );
 }
