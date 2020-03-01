@@ -3,6 +3,14 @@
   font-size: 1.2rem;
 }
 
+.App p {
+  max-width: 400px;
+  margin: auto;
+  padding: 60px 20px;
+  text-align: justify;
+  color: rgb(83, 97, 116);
+}
+
 h2.restTitle,
 h2.longRestTitle {
   color: rgb(114, 161, 70);
