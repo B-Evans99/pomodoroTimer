@@ -19,7 +19,8 @@ export default function SettingController({
   setWorkTime,
   workTime,
   setLongRestTime,
-  longRestTime
+  longRestTime,
+  timerInterval
 }) {
   return (
     <div className="sessionController">
@@ -28,11 +29,13 @@ export default function SettingController({
           icon={faPlay}
           size="lg"
           onClick={start}
+          style={timerInterval == -1 ? { color: "#0f0" } : {}}
         ></FontAwesomeIcon>
         <FontAwesomeIcon
           icon={faPause}
           size="lg"
           onClick={pauseTimer}
+          style={timerInterval != -1 ? { color: "#0f0" } : {}}
         ></FontAwesomeIcon>
         <FontAwesomeIcon
           icon={faBackward}
@@ -56,10 +59,10 @@ export default function SettingController({
           <h3>Work Session</h3>
           <input
             type="text"
-            value={workTime}
+            value={workTime / 60}
             onChange={e => {
               let newVal = parseInt(e.target.value);
-              setWorkTime(newVal);
+              setWorkTime(newVal * 60);
             }}
           ></input>
         </div>
@@ -67,10 +70,10 @@ export default function SettingController({
           <h3>Rest Session</h3>
           <input
             type="text"
-            value={restTime}
+            value={restTime / 60}
             onChange={e => {
               let newVal = parseInt(e.target.value);
-              setRestTime(newVal);
+              setRestTime(newVal * 60);
             }}
           ></input>
         </div>
@@ -78,10 +81,10 @@ export default function SettingController({
           <h3>Long Rest Session</h3>
           <input
             type="text"
-            value={longRestTime}
+            value={longRestTime / 60}
             onChange={e => {
               let newVal = parseInt(e.target.value);
-              setLongRestTime(newVal);
+              setLongRestTime(newVal * 60);
             }}
           ></input>
         </div>

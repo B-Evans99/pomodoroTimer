@@ -1,9 +1,42 @@
 .App {
   text-align: center;
+  font-size: 1.2rem;
 }
 
 .clock {
   max-width: 400px;
   margin: auto;
   padding: 20px;
+}
+
+.iconBar {
+  display: flex;
+  flex-direction: row;
+  max-width: 300px;
+  justify-content: center;
+  margin: auto;
+}
+
+.iconBar svg {
+  cursor: pointer;
+  margin: 0px 15px;
+}
+
+.sessionControlBox {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: auto;
+}
+
+.sessionBox {
+  flex: 1;
+  padding: 0px 10px;
+}
+
+.sessionBox input {
+  font-size: 1.2rem;
+  padding: 7px 11px;
+  border-radius: 10px;
+  border: none;
 }

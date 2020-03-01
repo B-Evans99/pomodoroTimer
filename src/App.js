@@ -8,9 +8,9 @@ import SettingController from "./components/SettingController.js";
 import beep from "./beep.mp3";
 
 function App() {
-  let [workTime, setWorkTime] = useState(2);
-  let [restTime, setRestTime] = useState(2);
-  let [longRestTime, setLongRestTime] = useState(4);
+  let [workTime, setWorkTime] = useState(1500);
+  let [restTime, setRestTime] = useState(300);
+  let [longRestTime, setLongRestTime] = useState(600);
   let [time, setTime] = useState(workTime);
   let [timerInterval, setTimerInterval] = useState(-1);
   let [show, setShow] = useState(true);
@@ -86,6 +86,7 @@ function App() {
         restTime={restTime}
         longRestTime={longRestTime}
         show={show}
+        timerInterval={timerInterval}
       ></SettingController>
     </div>
   );
