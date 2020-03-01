@@ -4,7 +4,7 @@ import "react-circular-progressbar/dist/styles.css";
 
 export default function Clock({ sessionLength, time, filling }) {
   let percentage = (time / sessionLength) * 100;
-  let stroke = "#1966a9";
+  let stroke = "#253152";
   let trail = "#2d3";
 
   return (
