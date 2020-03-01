@@ -28,7 +28,7 @@ function App() {
     setSessionCount(count => {
       setTime(() => {
         if (session == "work") {
-          if ((count + 1) % 4 == 0) {
+          if ((count + 1) % 8 == 0) {
             setSession("longrest");
             return longRestTime;
           } else {
