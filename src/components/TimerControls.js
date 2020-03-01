@@ -22,12 +22,16 @@ export default function TimerControls({
         icon={faBackward}
         size="lg"
         onClick={reset}
+        title="Reset Timer"
       ></FontAwesomeIcon>
+
       <FontAwesomeIcon
         icon={timerInterval == -1 ? faPlay : faPause}
         size="2x"
         onClick={timerInterval == -1 ? start : pauseTimer}
+        title={timerInterval == -1 ? "Start Timer" : "Pause Timer"}
       ></FontAwesomeIcon>
+
       <FontAwesomeIcon
         icon={show ? faEye : faEyeSlash}
         size="lg"
@@ -36,6 +40,7 @@ export default function TimerControls({
             return !show;
           });
         }}
+        title={show ? "Hide Countdown" : "Show Countdown"}
       ></FontAwesomeIcon>
     </div>
   );
