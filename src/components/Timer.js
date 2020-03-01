@@ -6,6 +6,14 @@ export default function Timer({ time, show }) {
   let seconds = (time - hours * 3600 - minutes * 60) % 60;
 
   return (
-    <h1>{show ? hours + ":" + minutes + ":" + seconds : "Timer hidden"}</h1>
+    <h1>
+      {show
+        ? hours.toString().padStart(2, "0") +
+          ":" +
+          minutes.toString().padStart(2, "0") +
+          ":" +
+          seconds.toString().padStart(2, "0")
+        : "Timer hidden"}
+    </h1>
   );
 }

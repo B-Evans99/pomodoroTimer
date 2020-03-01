@@ -1,10 +1,19 @@
 import React from "react";
+import {
+  faPlay,
+  faPause,
+  faBackward,
+  faEye,
+  faEyeSlash
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function SettingController({
   start,
   pauseTimer,
   setTime,
   setShow,
+  show,
   setRestTime,
   restTime,
   setWorkTime,
@@ -14,24 +23,32 @@ export default function SettingController({
 }) {
   return (
     <div className="sessionController">
-      <input type="button" onClick={start} value="Start"></input>
-      <input type="button" onClick={pauseTimer} value="Stop"></input>
-      <input
-        type="button"
-        value="Reset"
+      <FontAwesomeIcon
+        icon={faPlay}
+        size="lg"
+        onClick={start}
+      ></FontAwesomeIcon>
+      <FontAwesomeIcon
+        icon={faPause}
+        size="lg"
+        onClick={pauseTimer}
+      ></FontAwesomeIcon>
+      <FontAwesomeIcon
+        icon={faBackward}
+        size="lg"
         onClick={() => {
           setTime(500);
         }}
-      ></input>
-      <input
-        type="button"
-        value="show/hide timer"
+      ></FontAwesomeIcon>
+      <FontAwesomeIcon
+        icon={show ? faEye : faEyeSlash}
+        size="lg"
         onClick={() => {
           setShow(show => {
             return !show;
           });
         }}
-      ></input>
+      ></FontAwesomeIcon>
       <input
         type="text"
         value={workTime}

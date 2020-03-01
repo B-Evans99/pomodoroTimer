@@ -85,6 +85,7 @@ function App() {
         workTime={workTime}
         restTime={restTime}
         longRestTime={longRestTime}
+        show={show}
       ></SettingController>
     </div>
   );
