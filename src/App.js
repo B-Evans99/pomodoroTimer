@@ -4,8 +4,9 @@ import logo from "./logo.svg";
 import "./App.css";
 import Clock from "./components/Clock.js";
 import Timer from "./components/Timer.js";
-import SettingController from "./components/SettingController.js";
+import SessionControls from "./components/SessionControls.js";
 import beep from "./beep.mp3";
+import TimerControls from "./components/TimerControls";
 
 function App() {
   let [workTime, setWorkTime] = useState(1500);
@@ -92,23 +93,27 @@ function App() {
             : longRestTime
         }
       ></Timer>
-      <SettingController
-        start={start}
-        pauseTimer={pauseTimer}
-        setTime={setTime}
-        setShow={setShow}
-        setRestTime={setRestTime}
-        setWorkTime={setWorkTime}
-        setLongRestTime={setLongRestTime}
-        workTime={workTime}
-        restTime={restTime}
-        longRestTime={longRestTime}
-        show={show}
-        timerInterval={timerInterval}
-        reset={reset}
-        longRestEnabled={longRestEnabled}
-        setLongRestEnabled={setLongRestEnabled}
-      ></SettingController>
+      <div className="sessionController">
+        <TimerControls
+          start={start}
+          pauseTimer={pauseTimer}
+          setShow={setShow}
+          show={show}
+          timerInterval={timerInterval}
+          reset={reset}
+        ></TimerControls>
+        <SessionControls
+          setTime={setTime}
+          setRestTime={setRestTime}
+          setWorkTime={setWorkTime}
+          setLongRestTime={setLongRestTime}
+          workTime={workTime}
+          restTime={restTime}
+          longRestTime={longRestTime}
+          longRestEnabled={longRestEnabled}
+          setLongRestEnabled={setLongRestEnabled}
+        ></SessionControls>
+      </div>
     </div>
   );
 }
