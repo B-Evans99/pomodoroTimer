@@ -10,10 +10,12 @@ import beep from "./beep.mp3";
 function App() {
   let [workTime, setWorkTime] = useState(2);
   let [restTime, setRestTime] = useState(2);
+  let [longRestTime, setLongRestTime] = useState(4);
   let [time, setTime] = useState(workTime);
   let [timerInterval, setTimerInterval] = useState(-1);
   let [show, setShow] = useState(true);
   let [session, setSession] = useState("work");
+  let [sessionCount, setSessionCount] = useState(0);
 
   let pauseTimer = () => {
     setTimerInterval(interval => {
@@ -23,14 +25,22 @@ function App() {
   };
 
   let changeSession = () => {
-    setTime(() => {
-      if (session == "work") {
-        setSession("rest");
-        return restTime;
-      } else {
-        setSession("work");
-        return workTime;
-      }
+    setSessionCount(count => {
+      setTime(() => {
+        if (session == "work") {
+          if ((count + 1) % 4 == 0) {
+            setSession("longrest");
+            return longRestTime;
+          } else {
+            setSession("rest");
+            return restTime;
+          }
+        } else {
+          setSession("work");
+          return workTime;
+        }
+      });
+      return count + 1;
     });
   };
 
@@ -69,6 +79,12 @@ function App() {
         pauseTimer={pauseTimer}
         setTime={setTime}
         setShow={setShow}
+        setRestTime={setRestTime}
+        setWorkTime={setWorkTime}
+        setLongRestTime={setLongRestTime}
+        workTime={workTime}
+        restTime={restTime}
+        longRestTime={longRestTime}
       ></SettingController>
     </div>
   );

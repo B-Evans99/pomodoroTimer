@@ -4,7 +4,13 @@ export default function SettingController({
   start,
   pauseTimer,
   setTime,
-  setShow
+  setShow,
+  setRestTime,
+  restTime,
+  setWorkTime,
+  workTime,
+  setLongRestTime,
+  longRestTime
 }) {
   return (
     <div className="sessionController">
@@ -24,6 +30,30 @@ export default function SettingController({
           setShow(show => {
             return !show;
           });
+        }}
+      ></input>
+      <input
+        type="text"
+        value={workTime}
+        onChange={e => {
+          let newVal = parseInt(e.target.value);
+          setWorkTime(newVal);
+        }}
+      ></input>
+      <input
+        type="text"
+        value={restTime}
+        onChange={e => {
+          let newVal = parseInt(e.target.value);
+          setRestTime(newVal);
+        }}
+      ></input>
+      <input
+        type="text"
+        value={longRestTime}
+        onChange={e => {
+          let newVal = parseInt(e.target.value);
+          setLongRestTime(newVal);
         }}
       ></input>
     </div>
