@@ -9,3 +9,13 @@ There is a timer! My next step is to add in some control for the work/rest sessi
 ---
 
 The timer is almost entirely functional. My last step is to add functionality to toggle the option for long rests.
+
+---
+
+I've completed most of what I wanted to have done, with the exception of the url bookmarking feature.
+
+Other things I would like to do:
+    - The input boxes should have "minutes" somewhere.
+    - Make the control icons hierarchical with size (make the play button bigger)
+    - Add in different alarm noises
+    - Tailor the phone design (everything is functional on mobile devices, but it could use tweaking)
