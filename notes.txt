@@ -5,3 +5,7 @@ Yesterday I made some initial sketches for the design. Along with the user stori
 ---
 
 There is a timer! My next step is to add in some control for the work/rest sessions.
+
+---
+
+The timer is almost entirely functional. My last step is to add functionality to toggle the option for long rests.

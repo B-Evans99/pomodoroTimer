@@ -16,6 +16,7 @@ function App() {
   let [show, setShow] = useState(true);
   let [session, setSession] = useState("work");
   let [sessionCount, setSessionCount] = useState(0);
+  let [longRestEnabled, setLongRestEnabled] = useState(false);
 
   let pauseTimer = () => {
     setTimerInterval(interval => {
@@ -33,7 +34,7 @@ function App() {
     setTime(0);
     setSessionCount(count => {
       if (session == "work") {
-        if ((count + 1) % 8 == 0) {
+        if (longRestEnabled && (count + 2) % 8 == 0) {
           setSession("longrest");
         } else {
           setSession("rest");
@@ -41,6 +42,8 @@ function App() {
       } else {
         setSession("work");
       }
+
+      console.log(count);
 
       return count + 1;
     });
@@ -103,6 +106,8 @@ function App() {
         show={show}
         timerInterval={timerInterval}
         reset={reset}
+        longRestEnabled={longRestEnabled}
+        setLongRestEnabled={setLongRestEnabled}
       ></SettingController>
     </div>
   );

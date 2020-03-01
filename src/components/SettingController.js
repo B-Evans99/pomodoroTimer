@@ -21,7 +21,9 @@ export default function SettingController({
   setLongRestTime,
   longRestTime,
   timerInterval,
-  reset
+  reset,
+  longRestEnabled,
+  setLongRestEnabled
 }) {
   return (
     <div className="sessionController">
@@ -69,17 +71,24 @@ export default function SettingController({
             }}
           ></input>
         </div>
-        <div className="sessionBox">
-          <h3>Long Rest Session</h3>
-          <input
-            type="text"
-            value={longRestTime / 60}
-            onChange={e => {
-              let newVal = parseInt("0" + e.target.value);
-              setLongRestTime(newVal * 60);
-            }}
-          ></input>
-        </div>
+
+        {longRestEnabled ? (
+          <div className="sessionBox">
+            <h3>Long Rest Session</h3>
+            <input
+              type="text"
+              value={longRestTime / 60}
+              onChange={e => {
+                let newVal = parseInt("0" + e.target.value);
+                setLongRestTime(newVal * 60);
+              }}
+            ></input>
+          </div>
+        ) : (
+          <div className="sessionBox">
+            <h3 onClick={() => setLongRestEnabled(true)}>Enable long rest</h3>
+          </div>
+        )}
       </div>
     </div>
   );
