@@ -30,22 +30,19 @@ function App() {
 
   let changeSession = () => {
     setSessionCount(count => {
-      setTime(() => {
-        if (session == "work") {
-          if ((count + 1) % 8 == 0) {
-            setSession("longrest");
-            return longRestTime;
-          } else {
-            setSession("rest");
-            return restTime;
-          }
+      if (session == "work") {
+        if ((count + 1) % 8 == 0) {
+          setSession("longrest");
         } else {
-          setSession("work");
-          return workTime;
+          setSession("rest");
         }
-      });
+      } else {
+        setSession("work");
+      }
+
       return count + 1;
     });
+    setTime(0);
   };
 
   let tick = () => {
