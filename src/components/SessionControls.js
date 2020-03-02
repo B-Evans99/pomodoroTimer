@@ -32,6 +32,7 @@ export default function SessionControls({
   let updateTime = (controlFunction, newVal, updateNewVal) => {
     updateNewVal(newVal => {
       newVal = newVal >= 60 ? newVal : 60;
+      newVal = newVal <= 599940 ? newVal : 599940;
       controlFunction(newVal);
       return newVal;
     });
