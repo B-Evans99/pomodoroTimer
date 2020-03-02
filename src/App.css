@@ -80,6 +80,13 @@ h2.workTitle {
 .inputBox {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.inputBox svg {
+  cursor: pointer;
+  padding: 0px 15px;
+  color: rgb(168, 44, 44);
 }
 
 .inputBox span {

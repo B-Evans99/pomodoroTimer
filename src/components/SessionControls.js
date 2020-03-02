@@ -1,11 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  faPlay,
-  faPause,
-  faBackward,
-  faEye,
-  faEyeSlash
-} from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useHistory } from "react-router-dom";
 
@@ -79,6 +73,12 @@ export default function SessionControls({
               }}
             ></input>
             <span>min</span>
+            <FontAwesomeIcon
+              icon={faTimes}
+              onClick={() => {
+                setLongRestEnabled(false);
+              }}
+            ></FontAwesomeIcon>
           </div>
         </div>
       ) : (
@@ -87,7 +87,7 @@ export default function SessionControls({
             style={{ cursor: "pointer" }}
             onClick={() => setLongRestEnabled(true)}
           >
-            Enable long rest
+            Enable Long Rest
           </h3>
         </div>
       )}
