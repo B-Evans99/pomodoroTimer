@@ -14,4 +14,4 @@ Download the repository. In the folder with package.json, run ```npm i``` to ins
 
 ## Authors
 
-Bronwen Evans - initial work - B-Evans99[https://github.com/B-Evans99]
+Bronwen Evans - initial work - [B-Evans99](https://github.com/B-Evans99)
