@@ -127,11 +127,17 @@ function App() {
           ></SessionControls>
           <p>
             The Pomodoro Technique breaks time into sessions of work and rest to
-            help with productivity, quality of work, and focus. Set how long you
-            would like your sessions to be and whether you would like to have
-            longer breaks every 4 work sessions, then hit the play button to
-            start the first work session. When the timer beeps, return to start
-            the next session.
+            help with productivity, quality of work, and focus.
+          </p>
+          <p>
+            To use the timer, enter how long you would like your sessions to be.
+            If you would like to have a longer break every 4 work sessions,
+            enable long rest. Then hit the play button to start the first work
+            session.
+          </p>
+          <p>
+            When the timer beeps, hit the play button again to start the next
+            session.
           </p>
         </div>
       </div>

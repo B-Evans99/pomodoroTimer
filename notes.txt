@@ -32,3 +32,7 @@ I cannot! There are query params in the URL that update based upon the session l
 
 I tested the app with a couple users. One user got confused when he set the timer to 0 minutes and completely skipped his work session. I've set it now so the mininum value the sessions can go down to is 1 minute. This means that when users set a 1 minute time, it's difficult to reset it to say, 5 minutes. Everyone was annoyed by that, but not confused, which was preferable to when the user didn't understand what he'd done to trigger a rest session.
 
+---
+
+I fixed the input boxes so they only submit their value on enter/blur. I've also changed the copy for some users who were unfamiliar with the technique and wanted clearer instructions.
+
