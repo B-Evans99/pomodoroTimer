@@ -1,4 +1,4 @@
-### Pomodoro Timer
+# Pomodoro Timer
 
 The Pomodoro Technique breaks time into sessions of work and rest to help with productivity, quality of work, and focus.
 
