@@ -97,7 +97,8 @@ function App() {
               : "longRestTitle"
           }
         >
-          {session} session
+          {session.slice(0, 1).toUpperCase() + session.slice(1, session.length)}{" "}
+          Session
         </h2>
         {/*the sound element for controlling the buzzer fires when the timer has met the session length and triggers changeSession on completion*/}
         <Sound
