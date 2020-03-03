@@ -18,6 +18,7 @@ export default function SessionControls({
   let [localRest, setLocalRest] = useState(restTime);
   let [localLongRest, setLocalLongRest] = useState(longRestTime);
 
+  //update the URL with query terms that are never used, haha
   useEffect(() => {
     history.push(
       "/session?work=" +
@@ -29,8 +30,10 @@ export default function SessionControls({
     );
   }, [workTime, restTime, longRestTime]);
 
-  let updateTime = (controlFunction, newVal, updateNewVal) => {
+  //update the length of time for any variable
+  let updateTime = (controlFunction, updateNewVal) => {
     updateNewVal(newVal => {
+      //some broad control on how long a timer can be with a minimum of 1 minute and a max of 9999
       newVal = newVal >= 60 ? newVal : 60;
       newVal = newVal <= 599940 ? newVal : 599940;
       controlFunction(newVal);
@@ -47,16 +50,19 @@ export default function SessionControls({
             type="text"
             value={localWork / 60}
             onChange={e => {
+              //add a 0 to the input incase its empty to avoid NaN
               let newVal = parseInt("0" + e.target.value);
               setLocalWork(newVal * 60);
             }}
             onKeyDown={e => {
+              //if "enter"
               if (e.keyCode == 13) {
-                updateTime(setWorkTime, localWork, setLocalWork);
+                updateTime(setWorkTime, setLocalWork);
               }
             }}
             onBlur={() => {
-              updateTime(setWorkTime, localWork, setLocalWork);
+              //if the focus moves, update
+              updateTime(setWorkTime, setLocalWork);
             }}
           ></input>
           <span>min</span>
@@ -74,11 +80,11 @@ export default function SessionControls({
             }}
             onKeyDown={e => {
               if (e.keyCode == 13) {
-                updateTime(setRestTime, localRest, setLocalRest);
+                updateTime(setRestTime, setLocalRest);
               }
             }}
             onBlur={() => {
-              updateTime(setRestTime, localRest, setLocalRest);
+              updateTime(setRestTime, setLocalRest);
             }}
           ></input>
           <span>min</span>
@@ -98,11 +104,11 @@ export default function SessionControls({
               }}
               onKeyDown={e => {
                 if (e.keyCode == 13) {
-                  updateTime(setLongRestTime, localLongRest, setLocalLongRest);
+                  updateTime(setLongRestTime, setLocalLongRest);
                 }
               }}
               onBlur={() => {
-                updateTime(setLongRestTime, localLongRest, setLocalLongRest);
+                updateTime(setLongRestTime, setLocalLongRest);
               }}
             ></input>
             <span>min</span>

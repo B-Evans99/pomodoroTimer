@@ -18,6 +18,7 @@ export default function TimerControls({
 }) {
   return (
     <div className="iconBar">
+      {/* Reset timer button */}
       <FontAwesomeIcon
         icon={faBackward}
         size="lg"
@@ -25,6 +26,7 @@ export default function TimerControls({
         title="Reset Timer"
       ></FontAwesomeIcon>
 
+      {/* Pause/play button */}
       <FontAwesomeIcon
         icon={timerInterval == -1 ? faPlay : faPause}
         size="2x"
@@ -32,6 +34,7 @@ export default function TimerControls({
         title={timerInterval == -1 ? "Start Timer" : "Pause Timer"}
       ></FontAwesomeIcon>
 
+      {/* show/hide countdown button */}
       <FontAwesomeIcon
         icon={show ? faEye : faEyeSlash}
         size="lg"

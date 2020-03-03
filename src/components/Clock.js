@@ -4,6 +4,8 @@ import "react-circular-progressbar/dist/styles.css";
 
 export default function Clock({ sessionLength, time, filling }) {
   let percentage = (time / sessionLength) * 100;
+
+  //the use of the troke and trail flip depending on whether the clock is waxing/waning
   let stroke = "#253152";
   let trail = "#2d3";
 
